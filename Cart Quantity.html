@@ -7,82 +7,120 @@
     <title>Cart Quantity</title>
 </head>
 
-    <body>
-        <button onclick="
-            console.log(`Cart Quantity is ${showQuantity}`);
-            ">
-            Show Quantity
-        </button>
+          <body>
+                           
+                            <button onclick="
+                                console.log(`Cart Quantity is ${showQuantity}`);">
+                                Show Quantity
+                            </button>
 
 
-        <button onclick="
-        console.log(`Cart Quantity is ${showQuantity=showQuantity+1}`);
-        ">
-            Add to Cart
-        </button>
+                            <button onclick="
+
+                                        add1ToCart();
+                                                        " >
+                                Add to Cart
+                            </button>
 
 
-        <button onclick="
-        console.log( `Cart Quantity is ${showQuantity=showQuantity+2}`);
-        ">
-            +2
-        </button>
+                            <button onclick="
+                        add2ToCart();                           
+                            ">
+                                +2
+                            </button>
 
 
-        <button onclick="
-        console.log( `Cart Quantity is ${showQuantity=showQuantity+3}`);
-        ">
-            +3
-        </button>
+                            <button onclick="
+                            
+                        add3ToCart();                           
+                            ">
+                                +3
+                            </button>
+
+                              <button onclick="
+                                                showQuantity=showQuantity-2;
+
+                                             if ( showQuantity < 0) {
+                                                showQuantity = showQuantity + 2;
+                                                console.log(`Cart quantity can't be negative value`);
+                                                console.log( `Cart Quantity is ${showQuantity}`);
+                                                }
+                                                else{
+                                                    console.log( `Cart Quantity is ${showQuantity}`);
+                                                }
+                                        ">
+                                            -2
+                                        </button>
 
 
+                            <button onclick="
+                                            showQuantity=showQuantity-3;
+
+                                            if ( showQuantity < 0) {
+                                                showQuantity = showQuantity + 3;
+                                            console.log(`Cart quantity can't be negative value`);
+                                            console.log( `Cart Quantity is ${showQuantity}`);
+                                            }
+                                            else{
+                                                console.log( `Cart Quantity is ${showQuantity}`);
+                                            }
+                                            ">
+                                -3
+                            </button>
 
 
-        <button onclick="
-        showQuantity=showQuantity-2;
-
-        if ( showQuantity < 0) {
-           showQuantity = 0;
-           console.log(`Cart quantity can't be nrgative value`);
-           console.log( `Cart Quantity is ${showQuantity}`);
-        }
-        else{
-            console.log( `Cart Quantity is ${showQuantity}`);
-        }
-        ">
-            -2
-        </button>
+                    <button onclick="
+                    console.log( `Cart  is Reseted . Quantity is ${showQuantity=0}`);
+                    ">
+                        Reset Cart
+                    </button>
 
 
-        <button onclick="
-        showQuantity=showQuantity-3;
-
-        if ( showQuantity < 0) {
-           showQuantity = 0;
-           console.log(`Cart quantity can't be negative value`);
-           console.log( `Cart Quantity is ${showQuantity}`);
-        }
-        else{
-            console.log( `Cart Quantity is ${showQuantity}`);
-        }
-
-        ">
-            -3
-        </button>
+                    <script>
+                                                             
+                             let showQuantity = 0;
+                                        
+                                    function checkCartHighLimit ()                                   
+                                    {
+                                    console.log(`Cart quantity can't be higher than 10`);
+                                    console.log( `Cart Quantity is ${showQuantity}`);
+                                    }
 
 
-        <button onclick="
-        console.log( `Cart  is Reseted . Quantity is ${showQuantity=0}`);
-        ">
-            Reset Cart
-        </button>
+                                    function add1ToCart()
+                                    {                       
+                                        if ( showQuantity > 9) {
+                                                checkCartHighLimit();
+                                                            }
+                                        else{
+                                                showQuantity= showQuantity + 1;
+                                                console.log( `Cart Quantity is ${showQuantity}`);
+                                                    }
+                                    }
 
-        <script>
-            let showQuantity = 0;
-           
+                                    function add2ToCart()
+                                    {
+                                    if ( showQuantity > 8) {
+                                                checkCartHighLimit();
+                                                            }
+                                        else{
+                                                showQuantity= showQuantity + 2;
+                                                console.log( `Cart Quantity is ${showQuantity}`);
+                                                }
+                                    }
 
-
+                                    function add3ToCart(){
+                                        if ( showQuantity > 7) {
+                                                checkCartHighLimit();
+                                                            }
+                                        else{
+                                                showQuantity= showQuantity + 3;
+                                                console.log( `Cart Quantity is ${showQuantity}`);
+                                                }
+                                    }
+                                    
         </script>
     </body>
 
     </html>
+      
