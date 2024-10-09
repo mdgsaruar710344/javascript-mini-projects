@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+    <P class="display"> Click on any button</P>
+
+
+    <button onclick="displayValue('1')"
+       >1
+    </button>
+
+    <button onclick="displayValue('2')">
+        2
+    </button>
+
+    <button onclick="displayValue('3')">
+        3
+    </button>
+
+    <button onclick="displayValue('4')">
+        4
+    </button>
+
+   </section>
+   
+   <section>
+
+    <button onclick="displayValue('5')">
+        5
+    </button>
+    <button onclick="displayValue('6')">
+        6
+    </button>
+
+
+    <button onclick="insertOperator('+')">
+        +
+    </button>
+    <button onclick="insertOperator('-')">
+        -
+    </button>
+
+   </section>
+
+    
+    <button onclick="insertOperator('*')">
+        *
+    </button>
+    <button onclick="insertOperator('/')">
+        /
+    </button>
+    <button onclick="clearDisplay('C')">
+        C
+    </button>
+    <button onclick="calculate();">
+        =
+    </button>
+
+
+<script>
+   let currentValue='';
+   let displayElement;
+   let firstvalue ='';
+   let operator ='';
+
+    function displayValue(inputValue){
+         displayElement=document.querySelector(".display");
+       currentValue = currentValue + inputValue;
+       console.log(currentValue);
+     displayElement.innerHTML= firstvalue + '' + operator+currentValue;
+        console.log(displayElement.innerHTML);
+    }
+    function clearDisplay(inputC){
+        currentValue='';
+        operator='';
+        firstvalue='';
+        displayElement.innerHTML='';
+    }
+    function insertOperator(op){
+            if(operator){
+               calculate();
+            }
+
+            firstvalue=currentValue;
+            currentValue='';
+            operator=op;
+            displayElement.innerHTML=firstvalue + '' + operator;
+
+          }
+
+   function calculate(){
+            if(!firstvalue||!operator||!currentValue){
+                return ;
+            }
+            const num1= parseFloat(firstvalue);
+            const num2= parseFloat(currentValue);
+
+            let result= 0;
+            if(operator==='+'){
+                result=num1 +num2;
+            }
+            else if(operator==='-'){
+                result=num1-num2;
+
+            }
+
+            else if(operator==='*'){
+                result=num1*num2;
+
+            }
+
+            else if(operator==='/'){
+                if(num2===0)
+                    {
+                        result='Error';
+                    }
+                 else {result=num1/num2;
+
+                     }
+
+            }
+                console.log(`Result: ${result}`);
+            displayElement.innerHTML=result;
+            currentValue=result.toString();
+            firstvalue='';
+            operator='';
+
+        }
+
+        </script>
+</body>
+</html>
