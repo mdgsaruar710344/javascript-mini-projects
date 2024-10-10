@@ -9,54 +9,64 @@
     <input placeholder="Type here" onkeydown=" 
     calladdTodoList(event);
     " class="js-todo-input">
+    <input type="date" class="js-todo-date">
+
     <button onclick="
     addTodoList();" 
-    >
-        Add
-    </button>
+    >Add</button>
+
     <div class="js-todo-rendered">
-
     </div>
-    <script>
 
+    <script>
 
     let todoList = [];
     let listNameHTML;
     let nameHTML;
-    renderTodo();
     function renderTodo(){
-        listNameHTML='';
-        for(let i= 0; i<todoList.length; i++) {
-            const name= todoList[i];
-            console.log(name);
-            nameHTML= `<p>${name}</p>`
-          
-            listNameHTML +=nameHTML;
-        console.log(listNameHTML);
-
-        }
+    listNameHTML='';
+    for(let i= 0; i<todoList.length; i++) {
+        const todoObject= todoList[i];
+        const name=todoObject.taskName;
+        const date=todoObject.taskDate;
+        console.log(name);
+        console.log(date);
+        
+            nameHTML= `<p>${name} ${date}<button onclick="todoList.splice(${i},1);
+            renderTodo();
+            ">Delete</button> </p>`    
+        listNameHTML +=nameHTML;
+        
        
-        const renderedElement = document.querySelector('.js-todo-rendered');
-        renderedElement.innerHTML=listNameHTML;
+    console.log(listNameHTML);
+
     }
-   
+       
+    const renderedElement = document.querySelector('.js-todo-rendered');
+    renderedElement.innerHTML=listNameHTML;
+    }  
     function calladdTodoList (event){
         if(event.key==='Enter')
     {
         addTodoList();
     }
-    }
-        
+    }       
     function addTodoList (){
-        const inputElement = document.querySelector('.js-todo-input');
-        const todo = inputElement.value;
-    todoList.push(todo);
+        const inputTextElement = document.querySelector('.js-todo-input');
+        const name = inputTextElement.value;
+
+        const inputDateElement = document.querySelector('.js-todo-date');
+        const date = inputDateElement.value;
+
+    todoList.push({
+        taskName:name,
+        taskDate:date
+    });
     console.log(todoList);
-    inputElement.value='';
+    inputTextElement.value='';
+    inputDateElement.value='';
     renderTodo();  
     }
- 
-   
     </script>
 </body>
 </html>
