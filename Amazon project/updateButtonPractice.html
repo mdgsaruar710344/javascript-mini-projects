@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .hidden {
+      display: none; /* This will make the elements completely invisible and remove them from layout */
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <div class="js-div">
+    <button class="js-update-button">
+      update
+    </button>
+    <p class="js-paragraph">
+
+    </p>
+  </div>
+  <script>
+
+    /* <input type="text" >
+  <button> Save</button>
+*/
+      document.querySelector('.js-update-button').addEventListener('click',()=>{
+        const paragraphElement= document.querySelector('.js-paragraph');
+        paragraphElement.innerHTML=`
+        <input type="text" class="js-input">
+    <button class="js-savebutton"> Save</button> 
+        ` 
+        document.querySelector('.js-savebutton').addEventListener('click',()=>{
+          const inputElement= document.querySelector('.js-input');
+          const inputValue= parseInt(inputElement.value);
+          console.log(inputValue);
+          paragraphElement.classList.add("hidden");
+        });
+      })
+
+      cart.forEach(cartItem => {
+        if(cartItem.Id===productId){
+          const newQuantity=inputValue;
+          cartItem.quantity=newQuantity;
+        }
+        
+      });
+
+    
+    
+  </script>
+</body>
+</html>
